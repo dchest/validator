@@ -34,8 +34,8 @@ func ValidateDomainByResolvingIt(domain string) error {
 	return nil
 }
 
-// NormalizeEmail returns a normalized email address.
-// It returns an empty string if domain is not valid.
+// NormalizeEmail returns a normalized domain.
+// It returns an empty string if the domain is not valid.
 func NormalizeDomain(domain string) string {
 	// Trim whitespace.
 	domain = strings.TrimSpace(domain)

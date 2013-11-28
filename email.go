@@ -88,7 +88,7 @@ func splitEmail(email string) (local string, domain string, ok bool) {
 }
 
 // NormalizeEmail returns a normalized email address.
-// It returns an empty string if email is not valid.
+// It returns an empty string if the email is not valid.
 func NormalizeEmail(email string) string {
 	// Trim whitespace.
 	email = strings.TrimSpace(email)
