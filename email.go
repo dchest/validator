@@ -20,7 +20,7 @@ var emailRegexp = regexp.MustCompile("(?i)" + // case insensitive
 
 // IsValidEmail returns true if the given string is a valid email address.
 //
-// It uses a simple regular expression to check the domain validity.
+// It uses a simple regular expression to check the address validity.
 func IsValidEmail(email string) bool {
 	return emailRegexp.MatchString(email)
 }
