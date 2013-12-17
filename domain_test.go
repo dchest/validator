@@ -14,13 +14,15 @@ var validDomains = []string{
 	"www.codingrobots.com",
 	"google.com",
 	"sub.domain.example.com",
-	"local",
+	"another.valid.com.",
 }
 
 var invalidDomains = []string{
 	"",
+	"local",
+	".example.com",
 	"президент.рф", // must be in IDNA encoded form
-	//	"invalid..", //BUG?
+	"invalid..",
 }
 
 func TestIsValidDomain(t *testing.T) {
@@ -58,7 +60,6 @@ var sameDomains = []string{
 
 var differentDomains = []string{
 	"www.example.com",
-	".example.com",
 	"example.com",
 }
 
@@ -71,7 +72,7 @@ func TestNormalizeDomain(t *testing.T) {
 			nv0 := NormalizeDomain(v0)
 			nv1 := NormalizeDomain(v1)
 			if nv0 == "" {
-				t.Errorf("%d: domain invalid: %q", i, nv0)
+				t.Errorf("%d: domain invalid: %q", i, v0)
 			}
 			if nv0 != nv1 {
 				t.Errorf("%d-%d: normalized domains differ: %q and %q", i, j, nv0, nv1)
@@ -86,7 +87,7 @@ func TestNormalizeDomain(t *testing.T) {
 			nv0 := NormalizeDomain(v0)
 			nv1 := NormalizeDomain(v1)
 			if nv0 == "" {
-				t.Errorf("%d: domain invalid: %q", i, nv0)
+				t.Errorf("%d: domain invalid: %q", i, v0)
 			}
 			if nv0 == nv1 {
 				t.Errorf("%d-%d: normalized domains are the same: %q and %q", i, j, nv0, nv1)

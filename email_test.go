@@ -15,7 +15,6 @@ var validEmails = []string{
 	"postmaster@example.com",
 	"president@kremlin.gov.ru",
 	"example@example.co.uk",
-	"test@example.com.",
 }
 
 var invalidEmails = []string{
@@ -24,6 +23,11 @@ var invalidEmails = []string{
 	"example.com",
 	".com",
 	"адрес@пример.рф",
+	" space_before@example.com",
+	"space between@example.com",
+	"\nnewlinebefore@example.com",
+	"newline\nbetween@example.com",
+	"test@example.com.",
 }
 
 func TestIsValidEmail(t *testing.T) {
@@ -54,11 +58,8 @@ func TestValidateEmailByResolvingDomain(t *testing.T) {
 
 var sameEmails = []string{
 	"test@example.com",
-	"test@example.com.",
-	"test@EXAMPLE.COM.",
 	"test@EXAMPLE.COM",
 	"test@ExAmpLE.com",
-	" test@example.com \n",
 }
 
 var differentEmails = []string{
@@ -76,7 +77,7 @@ func TestNormalizeEmail(t *testing.T) {
 			nv0 := NormalizeEmail(v0)
 			nv1 := NormalizeEmail(v1)
 			if nv0 == "" {
-				t.Errorf("%d: email invalid: %q", i, nv0)
+				t.Errorf("%d: email invalid: %q", i, v0)
 			}
 			if nv0 != nv1 {
 				t.Errorf("%d-%d: normalized emails differ: %q and %q", i, j, nv0, nv1)
@@ -91,7 +92,7 @@ func TestNormalizeEmail(t *testing.T) {
 			nv0 := NormalizeEmail(v0)
 			nv1 := NormalizeEmail(v1)
 			if nv0 == "" {
-				t.Errorf("%d: email invalid: %q", i, nv0)
+				t.Errorf("%d: email invalid: %q", i, v0)
 			}
 			if nv0 == nv1 {
 				t.Errorf("%d-%d: normalized emails are the same: %q and %q", i, j, nv0, nv1)
