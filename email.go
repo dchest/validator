@@ -22,6 +22,9 @@ var emailRegexp = regexp.MustCompile("(?i)" + // case insensitive
 //
 // It uses a simple regular expression to check the address validity.
 func IsValidEmail(email string) bool {
+	if len(email) > 254 {
+		return false
+	}
 	return emailRegexp.MatchString(email)
 }
 

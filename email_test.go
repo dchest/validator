@@ -28,6 +28,7 @@ var invalidEmails = []string{
 	"\nnewlinebefore@example.com",
 	"newline\nbetween@example.com",
 	"test@example.com.",
+	"asyouallcanseethisemailaddressexceedsthemaximumnumberofcharactersallowedtobeintheemailaddresswhichisnomorethatn254accordingtovariousrfcokaycanistopnowornotyetnoineedmorecharacterstoadd@i.really.cannot.thinkof.what.else.to.put.into.this.invalid.address.net",
 }
 
 func TestIsValidEmail(t *testing.T) {
