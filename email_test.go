@@ -49,7 +49,7 @@ func TestValidateEmailByResolvingDomain(t *testing.T) {
 	if err != nil {
 		t.Errorf("%s", err)
 	}
-	err = ValidateEmailByResolvingDomain("nomx@example.com")
+	err = ValidateEmailByResolvingDomain("nomx@api.codingrobots.com")
 	if err == nil {
 		t.Errorf("invalid email address validated")
 	}
