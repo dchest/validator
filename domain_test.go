@@ -15,6 +15,11 @@ var validDomains = []string{
 	"google.com",
 	"sub.domain.example.com",
 	"another.valid.com.",
+	"www.example-valid.com",
+	"www-valid.example.com",
+	"www.example.com.",
+	"www.EXAMPLE.COM",
+	"WWW.exampLE.CoM",
 }
 
 var invalidDomains = []string{
@@ -23,6 +28,10 @@ var invalidDomains = []string{
 	".example.com",
 	"президент.рф", // must be in IDNA encoded form
 	"invalid..",
+	"-example.com",
+	"example-.com",
+	"invalid-.example.com",
+	"-INVALID.EXAMPLE.COM",
 }
 
 func TestIsValidDomain(t *testing.T) {
